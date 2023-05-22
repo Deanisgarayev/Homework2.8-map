@@ -18,7 +18,7 @@ public class EmployeeController {
     }
 
     @GetMapping("/add")
-    public EmployeeBook adEmployee(@RequestParam String firstname, @RequestParam String surname) {
+    public EmployeeBook addEmployee(@RequestParam String firstname, @RequestParam String surname) {
         return employeeInterface.add(firstname, surname);
     }
     @GetMapping("/remove")

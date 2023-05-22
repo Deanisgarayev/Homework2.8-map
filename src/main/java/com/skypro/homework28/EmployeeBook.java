@@ -20,6 +20,9 @@ public class EmployeeBook {
         public String getSurname() {
             return this.surname;
         }
+        public String getFullName(){
+            return firstname + " " + surname;
+        }
 
 
         @Override

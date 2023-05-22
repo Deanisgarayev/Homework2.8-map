@@ -2,35 +2,32 @@ package com.skypro.homework28;
 
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 @Service
 public class EmployeeInterfaceImpl implements EmployeeInterface {
-    private final List<EmployeeBook> employeeBookList;
+    private final Map<String, EmployeeBook> employeeBooks;
 
     public EmployeeInterfaceImpl() {
-        this.employeeBookList = new ArrayList<>();
+        this.employeeBooks = new HashMap<>();
     }
 
     @Override
 
     public EmployeeBook add(String firstname, String surname) {
         EmployeeBook employeeBook = new EmployeeBook(firstname, surname);
-        if (employeeBookList.contains(employeeBook)) {
+        if (employeeBooks.containsKey(employeeBook.getFullName())) {
             throw new EmployeeAlreadyAddedException();
         }
-        employeeBookList.add(employeeBook);
+        employeeBooks.put(employeeBook.getFullName(), employeeBook);
         return employeeBook;
     }
 
     @Override
     public EmployeeBook remove(String firstname, String surname) {
         EmployeeBook employeeBook = new EmployeeBook(firstname, surname);
-        if (employeeBookList.contains(employeeBook)) {
-            employeeBookList.remove(employeeBook);
-            return employeeBook;
+        if (employeeBooks.containsKey(employeeBook)) {
+            return employeeBooks.remove(employeeBook.getFullName());
         }
         throw new EmployeeNotFoundException();
     }
@@ -38,15 +35,15 @@ public class EmployeeInterfaceImpl implements EmployeeInterface {
     @Override
     public EmployeeBook find(String firstname, String surname) {
         EmployeeBook employeeBook = new EmployeeBook(firstname, surname);
-        if (employeeBookList.contains(employeeBook)) {
-            return employeeBook;
+        if (employeeBooks.containsKey(employeeBook)) {
+            return employeeBooks.get(employeeBook.getFullName());
         }
         throw new EmployeeNotFoundException();
     }
 
     @Override
     public Collection<EmployeeBook> findAll() {
-        return Collections.unmodifiableList(employeeBookList);
+        return Collections.unmodifiableCollection(employeeBooks.values());
     }
 
 }
