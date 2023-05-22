@@ -3,18 +3,13 @@ package com.skypro.homework28;
 import java.util.Objects;
 
 public class EmployeeBook {
-    package com.skypro.homework28;
-
-import java.util.Objects;
-
-    public class Employee {
 
         private String firstname;
 
         private String surname;
 
 
-        public Employee(String firstname, String surname) {
+        public EmployeeBook(String firstname, String surname) {
             this.firstname = firstname;
             this.surname = surname;
         }
@@ -36,7 +31,7 @@ import java.util.Objects;
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            Employee employee = (Employee) o;
+            EmployeeBook employee = (EmployeeBook) o;
             return firstname.equals(employee.firstname) && surname.equals(employee.surname);
         }
 
@@ -47,4 +42,4 @@ import java.util.Objects;
 
     }
 
-}
+

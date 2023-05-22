@@ -1,12 +1,14 @@
 package com.skypro.homework28;
 
+import java.util.Collection;
+
 public interface EmployeeInterface {
-        Employee add(String firstname, String surname);
+        EmployeeBook add(String firstname, String surname);
 
-        Employee remove(String firstname, String surname);
+        EmployeeBook remove(String firstname, String surname);
 
-        Employee find(String firstname, String surname);
+        EmployeeBook find(String firstname, String surname);
 
-        Collection<Employee>  findAll();
+        Collection<EmployeeBook> findAll();
 
 }
