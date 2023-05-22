@@ -3,7 +3,7 @@ package com.skypro.homework28;
 import java.util.Objects;
 
 public class EmployeeBook {
-    package com.skypro.homework28;
+    package com.skypro.homework26;
 
 import java.util.Objects;
 
